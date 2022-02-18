@@ -1,2 +1,0 @@
-agda --compile hello-world.agda
-
