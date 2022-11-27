@@ -1,0 +1,87 @@
+\documentclass{article}
+\RequirePackage{
+  agda
+, amssymb
+, caption
+, catchfilebetweentags 
+, datetime2
+, enumitem
+, framed
+%% , geometry
+%% , listings
+, natbib
+, newunicodechar 
+, relsize
+, tikz-cd
+, xcolor 
+}
+
+\input{macros}
+
+\begin{document}
+
+\begin{code}%
+\>[0]\AgdaKeyword{module}\AgdaSpace{}%
+\AgdaModule{HelloWorld}\AgdaSpace{}%
+\AgdaKeyword{where}\<%
+\\
+%
+\\[\AgdaEmptyExtraSkip]%
+\>[0]\AgdaKeyword{open}\AgdaSpace{}%
+\AgdaKeyword{import}\AgdaSpace{}%
+\AgdaModule{Agda.Builtin.IO}\<%
+\\
+\>[0]\AgdaKeyword{open}\AgdaSpace{}%
+\AgdaKeyword{import}\AgdaSpace{}%
+\AgdaModule{Agda.Builtin.Unit}\<%
+\\
+\>[0]\AgdaKeyword{open}\AgdaSpace{}%
+\AgdaKeyword{import}\AgdaSpace{}%
+\AgdaModule{Agda.Builtin.String}\<%
+\\
+%
+\\[\AgdaEmptyExtraSkip]%
+\>[0]\AgdaKeyword{postulate}\<%
+\\
+\>[0][@{}l@{\AgdaIndent{0}}]%
+\>[2]\AgdaPostulate{putStrLn}\AgdaSpace{}%
+\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaPostulate{String}\AgdaSpace{}%
+\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaPostulate{IO}\AgdaSpace{}%
+\AgdaRecord{⊤}\<%
+\\
+%
+\\[\AgdaEmptyExtraSkip]%
+\>[0]\AgdaSymbol{\{-\#}\AgdaSpace{}%
+\AgdaKeyword{FOREIGN}\AgdaSpace{}%
+\AgdaPragma{GHC}\AgdaSpace{}%
+\AgdaPragma{import}\AgdaSpace{}%
+\AgdaPragma{qualified}\AgdaSpace{}%
+\AgdaPragma{Data.Text.IO}\AgdaSpace{}%
+\AgdaPragma{as}\AgdaSpace{}%
+\AgdaPragma{Text}\AgdaSpace{}%
+\AgdaSymbol{\#-\}}\<%
+\\
+\>[0]\AgdaSymbol{\{-\#}\AgdaSpace{}%
+\AgdaKeyword{COMPILE}\AgdaSpace{}%
+\AgdaKeyword{GHC}\AgdaSpace{}%
+\AgdaPostulate{putStrLn}\AgdaSpace{}%
+\AgdaPragma{=}\AgdaSpace{}%
+\AgdaPragma{Text.putStrLn}\AgdaSpace{}%
+\AgdaSymbol{\#-\}}\<%
+\\
+%
+\\[\AgdaEmptyExtraSkip]%
+\>[0]\AgdaFunction{main}\AgdaSpace{}%
+\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaPostulate{IO}\AgdaSpace{}%
+\AgdaRecord{⊤}\<%
+\\
+\>[0]\AgdaFunction{main}\AgdaSpace{}%
+\AgdaSymbol{=}\AgdaSpace{}%
+\AgdaPostulate{putStrLn}\AgdaSpace{}%
+\AgdaString{"Hello,\ World!"}\<%
+\end{code}
+
+\end{document}

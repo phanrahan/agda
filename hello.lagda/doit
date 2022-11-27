@@ -1,0 +1,5 @@
+agda --compile HelloWorld.lagda.tex
+agda --latex HelloWorld.lagda.tex
+
+
+

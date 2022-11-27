@@ -1,0 +1,180 @@
+%% Unicode character translations
+
+\newcommand\uni[2]{\newunicodechar{#1}{\ensuremath{#2}}}
+%% Remember to express horizontal movement in ems and vertical in exs and
+%% nothing in pt, to adapt to font size changes.
+
+\uni{⦃}{\{\hspace{-0.41em}\{}
+\uni{⦄}{\}\hspace{-0.41em}\}}
+
+\newcommand\sm[1]{\mathsf{#1}}
+
+\usepackage{bm}
+\uni{ℕ}{\mathbb{N}}
+\uni{𝔹}{\mathbb{B}}
+\uni{𝕥}{\sm{t}}
+\uni{𝕗}{\sm{f}}
+
+%% \usepackage{wasysym}
+
+%% \uni{𝐶}{\mathit{C}}
+
+%% \uni{μ}{\mu}
+\uni{⊗}{\otimes}
+\uni{⊎}{\uplus}
+\uni{×}{\times}
+\uni{∘}{\circ}
+\uni{▵}{\vartriangle}
+\uni{∎}{\blacksquare}
+\uni{■}{\blacksquare}
+\uni{∙}{\bullet}
+\uni{□}{\bigbox}
+\uni{⋯}{\cdots}
+\uni{∷}{\mathbin{::}}
+%% \uni{;}{;}
+
+%% \uni{≅}{\cong}
+%% \uni{𝟎}{\mathbf{0}}
+
+%% \usepackage{marvosym}
+%% \uni{✄}{\Rightscissors}
+
+% \Rightarrow (⇒)
+% \rightarrowtail (↣)
+% \rightarrowtriangle
+
+\usepackage{stmaryrd}
+
+\uni{⇨}{\rightarrowtriangle}
+\uni{⇧}{\uparrow}
+%% \uni{↑}{\uparrow}
+%% %% \uni{↑}{\hspace{-1pt}{^{\scriptscriptstyle\uparrow}}\hspace{-1pt}}
+%% \uni{⇑}{\Uparrow}
+%% \uni{⟰}{\dot\Uparrow}
+%% \uni{⇉}{\rightrightarrows}
+%% \uni{↦}{\rightarrowtail}
+%% %% \Rightarrow \rightarrowtail
+\uni{⟲}{\circlearrowleft}
+%% \uni{↻}{\curvearrowleft}
+\uni{↫}{\looparrowleft}
+\uni{↰}{\Lsh}
+\uni{⇋}{\rightleftharpoons}
+
+\uni{Θ}{\Theta}
+%% \uni{α}{\alpha}
+%% \uni{β}{\beta}
+%% \uni{γ}{\gamma}
+\uni{λ}{\lambda}
+%% \uni{μ}{\mu}
+%% \uni{τ}{\tau}
+%% \uni{ρ}{\rho}
+%% \uni{σ}{\sigma}
+
+%% \uni{ᶜ}{^c}
+%% \uni{ᵀ}{^T}
+%% \uni{≗}{\ \circeq\ }
+%% \uni{·}{\cdot}
+%% \uni{◎}{\circledcirc}
+\uni{⊕}{\oplus}
+\uni{∧}{\wedge}
+\uni{∨}{\vee}
+\uni{⊤}{\top}
+%% \uni{⊥}{\bot}
+%% \uni{✢}{+}
+
+%% Subscripts
+\nc\sub[1]{_{\scriptscriptstyle #1}}
+
+\uni{₀}{\sub 0}
+\uni{₁}{\sub 1}
+\uni{₂}{\sub 2}
+\uni{₃}{\sub 3}
+\uni{₄}{\sub 4}
+\uni{₅}{\sub 5}
+\uni{₆}{\sub 6}
+\uni{₇}{\sub 7}
+\uni{₈}{\sub 8}
+\uni{₉}{\sub 9}
+
+\uni{ᵢ}{_i}
+\uni{ₒ}{_o}
+%% \uni{ₘ}{_m}
+\uni{ₙ}{_n}
+%% \uni{ᵣ}{_r}
+%% \uni{ₛ}{_s}
+
+%% %% Superscripts
+%% \uni{²}{^2}
+%% \uni{³}{^3}
+%% \uni{⁻}{\raisebox{0.5ex}{-}}
+\uni{ᵉ}{\raisebox{0.5ex}{\smaller e}}
+\uni{ⁱ}{\raisebox{0.5ex}{\smaller i}}
+\uni{ᵒ}{\raisebox{0.5ex}{\smaller o}}
+\uni{ˡ}{\raisebox{0.5ex}{\smaller[2]l}}
+\uni{ʳ}{\raisebox{0.5ex}{\smaller r}}
+\uni{ᵛ}{\raisebox{0.5ex}{\smaller v}}
+%% \uni{ⱽ}{^v}
+%% \uni{ᶻ}{^z}
+\uni{ᵇ}{^b}
+
+%% \uni{⊣}{\dashv}
+
+%% \RequirePackage{bbding}
+
+%% \uni{≈}{\approx}
+\uni{≡}{\equiv}
+\uni{≗}{\circeq}
+\uni{∀}{\forall}
+%% \uni{≤}{\le}
+%% \uni{⊹}{\dotplus}
+
+\uni{⟨}{\langle}
+\uni{⟩}{\rangle}
+
+%%https://tex.stackexchange.com/questions/486120/using-the-unicode-prime-character-outside-math-mode-with-unicode-math-and-newuni
+\AtBeginDocument{\uni{′}{\ensuremath{'}}}
+\uni{″}{\ensuremath{'\hspace{-1pt}'}}
+
+
+%% \uni{✯}{\mathop{\mbox{\tiny \FiveStarOutlineHeavy}}}
+
+%% Invisible characters for otherwise clashing definitions.
+\uni{⇂}{}
+\uni{⇃}{}
+
+%% Token translations. See section "Controlling the typesetting of
+%% individual tokens" in the Agda User Manual and
+%% https://tex.stackexchange.com/questions/64131/implementing-switch-cases .
+
+\uni{✴}{\ast}
+\uni{✢}{\raisebox{0.75pt}{\scalebox{0.65}{\ensuremath{+}}}}
+
+\usepackage{xstring}
+\nc\ehat[1]{\ensuremath{\hat{#1}}}
+\nc\edot[1]{\ensuremath{\dot{#1}}}
+\nc\etilde[1]{\ensuremath{\tilde{#1}}}
+\DeclareRobustCommand{\AgdaFormat}[2]{\IfStrEqCase{#1}{
+  {+̇}{+}
+  %% {+}{✢}
+  {*}{✴}
+  % {;̂}{\ehat{;}}
+  {∘̂}{\ehat{∘}}
+  {𝕥̇}{𝕥}
+  {𝕗̇}{𝕗}
+  %% {2*}{2✴}
+  %% {2*\AgdaUnderscore{}}{2✴\AgdaUnderscore{}}
+  %% %% {*-assocˡ}{✴-assocˡ}
+  %% %% {*-assocʳ}{✴-assocʳ}
+  %% %% {*-comm}{✴-comm}
+  %% {Mᵒ}{M\raisebox{0.7ex}{\smaller o}}
+  %% {Rᵒ}{R\raisebox{0.7ex}{\smaller o}}
+  %% {Mⁱ}{M\raisebox{0.7ex}{\smaller i}}
+  %% {Rⁱ}{R\raisebox{0.7ex}{\smaller i}}
+  %% {fᴹ}{f\hspace{1pt}\raisebox{0.8ex}{\tiny M}}
+  %% {fᴿ}{f\hspace{1pt}\raisebox{0.8ex}{\tiny R}}
+
+
+{}{}}[#2]}
+
+
+  %%{*}{\hspace{1.4pt}✴\hspace{1.4pt}}

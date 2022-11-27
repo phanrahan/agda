@@ -1,0 +1,123 @@
+\newcommand\nc\newcommand
+\nc\rnc\renewcommand
+
+\input{agda-commands}
+\input{unicode}
+
+\nc\out[1]{}
+
+%% \nc\noteOut[2]{\note{#1}\out{#2}}
+
+%% To redefine for a non-draft
+\nc\indraft[1]{#1}
+
+%% I think \note gets defined by beamer.
+\let\note\undefined
+
+\nc\note[1]{\indraft{\textcolor{red}{#1}}}
+
+\nc\notefoot[1]{\note{\footnote{\note{#1}}}}
+
+\nc\todo[1]{\note{To do: #1}}
+
+\nc\chapterl[1]{\chapter{#1}\chaplabel{#1}}
+\nc\chaplabel[1]{\label{chap:#1}}
+\nc\chapref[1]{Chapter~\ref{chap:#1}}
+
+\nc\needcite{\note{[ref]}}
+
+\nc\workingHere{
+\vspace{1ex}
+\begin{center}
+\setlength{\fboxsep}{3ex}
+\setlength{\fboxrule}{4pt}
+\huge\textcolor{red}{\framebox{Working here}}
+\end{center}
+\vspace{1ex}
+}
+
+%% Would be superfluous with the memoir document class except for notefoot.
+%% For multiple footnotes at a point. Adapted to recognize \notefoot as well
+%% as \footnote. See https://tex.stackexchange.com/a/71347,
+\let\oldFootnote\footnote
+\nc\nextToken\relax
+\rnc\footnote[1]{%
+    \oldFootnote{#1}\futurelet\nextToken\isFootnote}
+\nc\footcomma[1]{\ifx#1\nextToken\textsuperscript{,}\fi}
+\nc\isFootnote{%
+    \footcomma\footnote
+    \footcomma\notefoot
+}
+
+% Arguments: env, label, caption, body
+\nc\figdefG[4]{\begin{#1}%[tbp]
+\begin{center}
+#4
+\end{center}
+\vspace{-1ex}
+\caption{#3}
+\figlabel{#2}
+\end{#1}}
+
+% Arguments: label, caption, body
+\nc\figdef{\figdefG{figure}}
+\nc\figdefwide{\figdefG{figure*}}
+
+% Arguments: label, caption, body
+\nc\figrefdef[3]{\figref{#1}\figdef{#1}{#2}{#3}}
+
+\nc\chapname{None}
+\nc\chap[1]{\rnc\chapname{#1}\subfile{\chapname/Chapter}}
+%% Is there a standard macro/variable I can use instead?
+
+\nc\verilog[1]{\inputminted{v}{Figures/\chapname/#1.v}}
+
+\nc\picfile[1]{Figures/#1.pdf}
+
+%% \nc\run[1]{\begin{snugshade*}\agda{#1-run}\end{snugshade*}}
+\nc\run[1]{\agda{#1-run}}
+
+\nc\figW[2]{\begin{center}\agda{#2}{\includegraphics[width=#1\linewidth]{\picfile{\chapname/#2}}}\end{center}}
+
+\nc\fig{\figW{1}}
+
+\nc\exampleW[2]{
+\vspace{-2ex}
+\begin{center}\small
+\hfill
+\begin{minipage}[c]{0.40\linewidth}
+\figW{#1}{#2}
+\end{minipage}
+\hspace{0.01\linewidth}
+\begin{minipage}[c]{0.57\linewidth}\verilog{#2}\end{minipage}
+\end{center}
+\begin{center}
+\vspace{-1ex}
+\run{#2}
+\ \\[-8ex]
+\end{center}
+%% \begin{snugshade*}
+%% \vspace{-1ex}
+%% \run{#2}
+%% \vspace{-1ex}
+%% \end{snugshade*}
+%% \begin{code}
+%%
+%% \end{code}
+\par\noindent\hspace{-1ex}%
+}
+%% The \par here prevents a LaTeX stack overflow. Huh?
+
+\setlength{\fboxrule}{0.2pt}
+
+\nc\example{\exampleW{1}}
+
+\nc\source{../\chapname/Code}
+
+\nc\agda[1]{\ExecuteMetaData[\source.tex]{#1}}
+
+%% Hide the somewhat arbitrary distinction between fundamental methods and
+%% derived operations.
+\rnc\AgdaField\AgdaFunction
+
+\usepackage{hyperref}
