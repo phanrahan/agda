@@ -1,0 +1,11 @@
+- boolean algebra DSL
+	- (B, and, t, or, false)
+	- evaluator
+	- Laws
+		- B
+		- Or, False:  commutative monoid (addition)
+		- And, True: commutative monoid (multiplication)
+			- identity = False
+		- Distributive Law: Rig (Ring wth no inverse)
+		- Not . Not = id
+		- DeMorgan's Law 

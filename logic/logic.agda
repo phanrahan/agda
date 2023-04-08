@@ -16,35 +16,35 @@ Or = _⊎_
 Implies : ∀ {a} → ∀ {b} → Set a → Set b → Set (a ⊔ b)
 Implies A B = A → B
 
-truthI : ⊤
-truthI = tt
+truthⁱ : ⊤
+truthⁱ = tt
 
-falseE : ⊥ → a
-falseE ()
+falseᵉ : ⊥ → a
+falseᵉ ()
 
-andI : a -> b → And a b
-andI = _,_
+andⁱ : a -> b → And a b
+andⁱ = _,_
 
-andEl : And a b → a
-andEl = proj₁
+andᵉ₁ : And a b → a
+andᵉ₁ = proj₁
 
-andEr : And a b → b
-andEr = proj₂
+andᵉ₂ : And a b → b
+andᵉ₂ = proj₂
 
-orIl : a → Or a b
-orIl = inj₁
+orⁱ₁ : a → Or a b
+orⁱ₁ = inj₁
 
-orIr : b → Or a b
-orIr = inj₂
+orⁱ₂ : b → Or a b
+orⁱ₂ = inj₂
 
-orE : Or a b → (a → c) → (b → c) → c
-orE or f g = [ f ,  g ]′ or
+orᵉ : Or a b → (a → c) → (b → c) → c
+orᵉ or f g = [ f ,  g ]′ or
 
-impliesI : (a → b) → Implies a b
-impliesI = id
+impliesⁱ : (a → b) → Implies a b
+impliesⁱ = id
 
-impliesE : Implies a b → (a → b)
-impliesE = id
+impliesᵉ : Implies a b → (a → b)
+impliesᵉ = id
 
 
 proof₀ : And True True
@@ -52,7 +52,7 @@ proof₀ = (tt , tt)
 -- cannot prove And False False - can only prove true statements
 
 proof₁ : And a b → And b c → And a c
-proof₁ x y = andI (andEl x) (andEr y)
+proof₁ x y = andⁱ (andᵉ₁ x) (andᵉ₂ y)
 
 
 

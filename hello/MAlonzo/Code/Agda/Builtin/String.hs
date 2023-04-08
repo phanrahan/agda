@@ -1,7 +1,15 @@
-{-# LANGUAGE BangPatterns, EmptyDataDecls, EmptyCase,
-             ExistentialQuantification, ScopedTypeVariables,
-             NoMonomorphismRestriction, RankNTypes, PatternSynonyms,
-             OverloadedStrings #-}
+{-# LANGUAGE BangPatterns #-}
+{-# LANGUAGE EmptyCase #-}
+{-# LANGUAGE EmptyDataDecls #-}
+{-# LANGUAGE ExistentialQuantification #-}
+{-# LANGUAGE NoMonomorphismRestriction #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE PatternSynonyms #-}
+{-# LANGUAGE RankNTypes #-}
+{-# LANGUAGE ScopedTypeVariables #-}
+
+{-# OPTIONS_GHC -Wno-overlapping-patterns #-}
+
 module MAlonzo.Code.Agda.Builtin.String where
 
 import MAlonzo.RTE (coe, erased, AgdaAny, addInt, subInt, mulInt,
